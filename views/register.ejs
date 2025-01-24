@@ -1,0 +1,22 @@
+<% include ./partials/header.ejs  %>
+<div class="w-full h-screen bg-zinc-300  flex items-center justify-center">
+  <div class="w-[25vw]  bg-white px-10 py-10 rounded-[20px]">
+    <h1 class="text-3xl font-bolder tracking-tighter capitalize text-center font-semibold text-zinc-800 leading-none">Create New Account</h1>
+    <form action="/register" method="post">
+
+      <input class="block border-2 rounded-lg  mt-5 w-full px-3 py-2" type="text" name="username" id="" placeholder="username">
+      <input class="block border-2 rounded-lg  mt-5 w-full px-3 py-2" type="email" name="email" id="" placeholder="Email">
+      <input class="block border-2 rounded-lg  mt-5 w-full px-3 py-2" type="number" name="contact" id="" placeholder="Your contact Number">
+      <input class="block border-2 rounded-lg  mt-5 w-full px-3 py-2" type="password" name="password" id="" placeholder="password">
+      
+      <input class="block border-2 rounded-lg text-center mt-2 w-full px-3 py-2 bg-red-600 text-white cursor-pointer rounded-full" type="submit" value="Register Your Account">
+      <p class="mt-5 text-zinc-600 font-semibold text-md w-4/4 mx-auto  ">By continuing, you agree to Pinterest's 
+        Terms of Service
+         and acknowledge that you've read our 
+        Privacy Policy.
+       </p>
+    </form>
+    <a href="/" class="inline-block w-full mt-7 text-center font-semibold text-zinc-800">Already have an Account ? Login</a>
+  </div>
+</div>
+<% include ./partials/footer.ejs  %>
