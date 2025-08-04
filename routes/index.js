@@ -1,11 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const userModel = require("./users");
-// const passport = require('passport');
-// const localStrategy = require('passport-local');
 const upload = require("./multer");
 const postModel = require("./posts");
-// passport.use(new localStrategy(userModel.authenticate()));
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
@@ -14,7 +11,6 @@ const secretKey = process.env.secretKey;
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  // res.render('index');
   res.send("Running Successfully");
 });
 
