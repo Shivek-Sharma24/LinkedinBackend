@@ -17,7 +17,7 @@ app.listen(port,()=>{
 })
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://linked-in-frontend-lovat.vercel.app",
     credentials: true,
     allowedHeaders: ["Authorization", "Content-Type"],
   })
