@@ -1,34 +1,44 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const expressSession = require("express-session")
-const flash = require("connect-flash")
-var indexRouter = require('./routes/index');
- var usersRouter = require('./routes/users');
-
-const passport = require("passport")
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+// const expressSession = require("express-session")
+const cors = require('cors')
+// const flash = require("connect-flash")
+let indexRouter = require('./routes/index');
+ let usersRouter = require('./routes/users');
+let port = 8000;
+// const passport = require("passport")
 
 var app = express();
-
+app.listen(port,()=>{
+  console.log(`App running on http://localhost:${port}`)
+})
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+    allowedHeaders: ["Authorization", "Content-Type"],
+  })
+);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(flash())
-app.use(expressSession(
-  {
-    resave:false,
-    saveUninitialized:false , 
-    secret:'shivek'
-  }
-));
-app.use(passport.initialize());
+// app.use(flash())
+// app.use(expressSession(
+//   {
+//     resave:false,
+//     saveUninitialized:false , 
+//     secret:'shivek'
+//   }
+// ));
+// app.use(passport.initialize());
 
-passport.serializeUser(usersRouter.serializeUser());
-passport.deserializeUser(usersRouter.deserializeUser());
-app.use(passport.session());
+// passport.serializeUser(usersRouter.serializeUser());
+// passport.deserializeUser(usersRouter.deserializeUser());
+// app.use(passport.session());
 
 
 app.use(logger('dev'));
